@@ -1,14 +1,14 @@
 // Konfiguration der Tiere
 // Jedes Tier hat: id, name, size (Größe für Sortierung), letters (8 Buchstaben), imagePath
 const ANIMALS_CONFIG = [
-    { id: 0, name: 'Maus', size: 5, letters: ['S', 'V', 'S', 'E', 'T', 'H', 'C', 'A'], imagePath: 'images/tier1.png' },
-    { id: 1, name: 'Hahn', size: 3, letters: ['O', 'U', 'G', 'H', 'E', 'T', 'T', 'V'], imagePath: 'images/tier2.png' },
-    { id: 2, name: 'Fuchs', size: 8, letters: ['E', 'R', 'P', 'E', 'C', 'N', 'F', 'S'], imagePath: 'images/tier3.png' },
-    { id: 3, name: 'Löwe', size: 2, letters: ['J', 'L', 'I', 'E', 'I', 'W', 'T', 'E'], imagePath: 'images/tier4.png' },
-    { id: 4, name: 'Bär', size: 7, letters: ['I', 'O', 'I', 'P', 'R', 'T', 'E', 'C'], imagePath: 'images/tier5.png' },
-    { id: 5, name: 'Elefant', size: 1, letters: ['W', 'N', 'C', 'G', 'U', 'H', 'S', 'M'], imagePath: 'images/tier6.png' },
-    { id: 6, name: 'Giraffe', size: 6, letters: ['L', 'A', 'G', 'T', 'E', 'C', 'S', 'V'], imagePath: 'images/tier7.png' },
-    { id: 7, name: 'Dino', size: 4, letters: ['U', 'Z', 'S', 'H', 'K', 'O', 'R', 'N'], imagePath: 'images/tier8.png' }
+    { id: 0, name: 'Maus', size: 5, letters: ['S', 'V', 'S', 'E', 'T', 'H', 'C', 'A'], imagePath: 'images/Tier1.png' },
+    { id: 1, name: 'Hahn', size: 3, letters: ['O', 'U', 'G', 'H', 'E', 'T', 'T', 'V'], imagePath: 'images/Tier2.png' },
+    { id: 2, name: 'Fuchs', size: 8, letters: ['E', 'R', 'P', 'E', 'C', 'N', 'F', 'S'], imagePath: 'images/Tier3.png' },
+    { id: 3, name: 'Löwe', size: 2, letters: ['J', 'L', 'I', 'E', 'I', 'W', 'T', 'E'], imagePath: 'images/Tier4.png' },
+    { id: 4, name: 'Bär', size: 7, letters: ['I', 'O', 'I', 'P', 'R', 'T', 'E', 'C'], imagePath: 'images/Tier5.png' },
+    { id: 5, name: 'Elefant', size: 1, letters: ['W', 'N', 'C', 'G', 'U', 'H', 'S', 'M'], imagePath: 'images/Tier6.png' },
+    { id: 6, name: 'Giraffe', size: 6, letters: ['L', 'A', 'G', 'T', 'E', 'C', 'S', 'V'], imagePath: 'images/Tier7.png' },
+    { id: 7, name: 'Dino', size: 4, letters: ['U', 'Z', 'S', 'H', 'K', 'O', 'R', 'N'], imagePath: 'images/Tier8.png' }
 ];
 
 // Startreihenfolge (fest vorgegeben): Tier 7, 5, 8, 6, 2, 1, 4, 3
