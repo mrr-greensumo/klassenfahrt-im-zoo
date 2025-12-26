@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geocache Bubblesort-Rätsel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Haupt-Spielbereich mit Layern -->
+    <div class="game-area">
+            <!-- Layer 1: Bus (Hintergrund) -->
+            <div class="bus-layer">
+                <img src="images/bus.png" alt="Bus" class="bus-image">
+            </div>
+
+            <!-- Layer 2: Tiere (Vordergrund) -->
+            <div class="animals-layer" id="animalsLayer">
+                <div class="animal-slot" data-position="0">
+                    <img src="images/tier1.png" alt="Tier 1" class="animal" data-animal-id="0">
+                </div>
+                <div class="animal-slot" data-position="1">
+                    <img src="images/tier2.png" alt="Tier 2" class="animal" data-animal-id="1">
+                </div>
+                <div class="animal-slot" data-position="2">
+                    <img src="images/tier3.png" alt="Tier 3" class="animal" data-animal-id="2">
+                </div>
+                <div class="animal-slot" data-position="3">
+                    <img src="images/tier4.png" alt="Tier 4" class="animal" data-animal-id="3">
+                </div>
+                <div class="animal-slot" data-position="4">
+                    <img src="images/tier5.png" alt="Tier 5" class="animal" data-animal-id="4">
+                </div>
+                <div class="animal-slot" data-position="5">
+                    <img src="images/tier6.png" alt="Tier 6" class="animal" data-animal-id="5">
+                </div>
+                <div class="animal-slot" data-position="6">
+                    <img src="images/tier7.png" alt="Tier 7" class="animal" data-animal-id="6">
+                </div>
+                <div class="animal-slot" data-position="7">
+                    <img src="images/tier8.png" alt="Tier 8" class="animal" data-animal-id="7">
+                </div>
+            </div>
+
+            <!-- Layer 3: Spiegel (ganz vorne) -->
+            <div class="mirror-layer">
+                <img src="images/Spiegel.png" alt="Spiegel" class="mirror-image">
+            </div>
+
+            <!-- Layer 4: Lösungsbuchstaben unterhalb der Fenster -->
+            <div class="solution-letters" id="solutionLetters">
+                <div class="solution-letter" id="solution-letter-0">?</div>
+                <div class="solution-letter" id="solution-letter-1">?</div>
+                <div class="solution-letter" id="solution-letter-2">?</div>
+                <div class="solution-letter" id="solution-letter-3">?</div>
+                <div class="solution-letter" id="solution-letter-4">?</div>
+                <div class="solution-letter" id="solution-letter-5">?</div>
+                <div class="solution-letter" id="solution-letter-6">?</div>
+                <div class="solution-letter" id="solution-letter-7">?</div>
+            </div>
+
+            <!-- Layer 5: Überschrift -->
+            <div class="title-overlay">
+                <h1>Klassenfahrt im Zoo</h1>
+            </div>
+
+            <!-- Layer 6: Buttons und Status -->
+            <button id="anleitungBtn" class="btn">Anleitung</button>
+            <button id="resetBtn" class="btn">Zurücksetzen</button>
+
+            <!-- Status-Anzeige -->
+            <div class="status" id="status">
+                Bereit zum Sortieren
+            </div>
+    </div>
+
+    <!-- Modal für Anleitung -->
+    <div id="anleitungModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal">Schließen</button>
+            <h2>Anleitung</h2>
+            <p>Die Tiere des Zoos machen eine Klassenfahrt und eigentlich war vorher beschlossen worden, dass die kleinsten Tiere vorn im Bus sitzen sollten und die großen hinten. Direkt hinter dem Fahrer sollte also die Maus, dann der Hahn, der Fuchs und der Löwe sitzen, weiter hinten dann Bär, Elefant, Giraffe und Dino.</p>
+            <p>Leider haben sich die Tiere beim Einsteigen nicht an die richtige Reihenfolge gehalten und im Bus ist es ziemlich eng, so dass immer nur zwei benachbarte Tiere die Plätze tauschen können. Damit nicht alle wieder aussteigen müssen, beschließen die Tiere also von vorn angefangen jeweils die Plätze zu tauschen, wenn die beiden noch nicht in der richtigen Reihenfolge zueinander sitzen. Dieser Tausch startet mit Platz 1 und 2, geht dann mit Platz 2 und 3 weiter bis zu Platz 7 und 8. Falls nach dem Tauschdurchgang die Reihenfolge noch nicht stimmen sollte, so machen sie das Ganz einfach noch einmal.</p>
+            <p>Na wenn das mal alles gutgeht.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

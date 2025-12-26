@@ -1,0 +1,389 @@
+/* Reset und Grundstile */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: #333;
+    margin: 0;
+}
+
+/* Haupt-Spielbereich */
+.game-area {
+    position: relative;
+    width: min(1536px, calc(100vw - 40px), calc((100vh - 40px) * 1536 / 859));
+    height: auto;
+    aspect-ratio: 1536 / 859;
+    background: #e8f4f8;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+/* Layer 2: Tiere (Vordergrund) */
+.animals-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.animal-slot {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 9.622%;
+    height: 40%;
+    top: 46.25%;
+}
+
+/* Exakte Positionierung für jedes Fenster (135.67px Abstand) */
+.animal-slot[data-position="0"] {
+    left: 10.424%;
+}
+
+.animal-slot[data-position="1"] {
+    left: 21.304%;
+}
+
+.animal-slot[data-position="2"] {
+    left: 32.184%;
+}
+
+.animal-slot[data-position="3"] {
+    left: 43.064%;
+}
+
+.animal-slot[data-position="4"] {
+    left: 53.944%;
+}
+
+.animal-slot[data-position="5"] {
+    left: 64.824%;
+}
+
+.animal-slot[data-position="6"] {
+    left: 75.704%;
+}
+
+.animal-slot[data-position="7"] {
+    left: 86.584%;
+}
+
+.animal {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.2s ease;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+/* Sonderfall: Tier 7 (Giraffe) ist höher und wird weiter oben angezeigt */
+.animal[data-animal-id="6"] {
+    margin-top: -100%;
+}
+
+.animal:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.3));
+}
+
+.animal.selected {
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 20px #667eea);
+}
+
+.animal.swapping {
+    animation: swap 0.6s ease-in-out;
+}
+
+@keyframes swap {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-30px);
+    }
+}
+
+/* Layer 1: Bus (Hintergrund) */
+.bus-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.bus-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Layer 3: Spiegel (ganz vorne) */
+.mirror-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.mirror-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Layer 4: Lösungsbuchstaben unterhalb der Fenster */
+.solution-letters {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.solution-letter {
+    position: absolute;
+    top: 65%;
+    transform: translate(-50%, 0);
+    font-size: 1.33em;
+    font-weight: bold;
+    text-align: center;
+    padding: 3px 8px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: color 0.3s ease;
+}
+
+/* Farbklassen für spezielle Zustände */
+.solution-letter.green {
+    color: #28a745;
+    opacity: 1;
+}
+
+.solution-letter.red {
+    color: #6c757d;
+    opacity: 0.5;
+}
+
+/* Pulse-Effekt für grüne Buchstaben */
+.solution-letter.pulse {
+    animation: pulse 0.6s ease-out;
+}
+
+/* Layer 5: Überschrift im Bild */
+.title-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 25px;
+}
+
+.title-overlay h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #2c3e50;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+    margin: 0;
+    text-align: center;
+}
+
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, 0) scale(1);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+    50% {
+        transform: translate(-50%, 0) scale(1.3);
+        box-shadow: 0 0 20px rgba(40, 167, 69, 0.8);
+    }
+    100% {
+        transform: translate(-50%, 0) scale(1);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+}
+
+/* Lösungsbuchstaben exakt unter den Fenstern positionieren */
+#solution-letter-0 { left: calc(10.424% + 4.811%); }
+#solution-letter-1 { left: calc(21.304% + 4.811%); }
+#solution-letter-2 { left: calc(32.184% + 4.811%); }
+#solution-letter-3 { left: calc(43.064% + 4.811%); }
+#solution-letter-4 { left: calc(53.944% + 4.811%); }
+#solution-letter-5 { left: calc(64.824% + 4.811%); }
+#solution-letter-6 { left: calc(75.704% + 4.811%); }
+#solution-letter-7 { left: calc(86.584% + 4.811%); }
+
+.btn {
+    padding: 12px 30px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#resetBtn {
+    background: #dc3545;
+    color: white;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    z-index: 10;
+}
+
+#resetBtn:hover {
+    background: #c82333;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+#anleitungBtn {
+    background: #28a745;
+    color: white;
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    z-index: 10;
+}
+
+#anleitungBtn:hover {
+    background: #218838;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* Status-Anzeige */
+.status {
+    position: absolute;
+    bottom: 15px;
+    left: 170px;
+    right: 205px;
+    text-align: center;
+    padding: 9px 15px;
+    background: rgba(212, 237, 218, 0.95);
+    border: 2px solid #c3e6cb;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 500;
+    color: #155724;
+    z-index: 10;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .btn {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+}
+
+/* Touch-Optimierung */
+@media (hover: none) and (pointer: coarse) {
+    .animal {
+        cursor: default;
+    }
+
+    .animal:hover {
+        transform: none;
+        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+    }
+
+    .btn {
+        padding: 15px 25px;
+        font-size: 1.2em;
+    }
+}
+
+/* Modal/Pop-up */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.modal-close {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.modal-close:hover {
+    background: #c82333;
+}
+
+.modal h2 {
+    color: #667eea;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+.modal p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #333;
+}
